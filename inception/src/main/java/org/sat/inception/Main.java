@@ -9,25 +9,23 @@ import org.sat.mysql.lexer.MySqlLexer;
 import org.sat.mysql.parser.MySqlParser;
 import org.sat.mysql.parser.MySqlParserBaseVisitor;
 
-
-import javax.swing.*;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] argv) throws IOException {
         System.out.println("start ");
-        String fileName="D:\\private\\sat\\inception\\test.sql";
-        CharStream source= CharStreams.fromFileName(fileName);
+        String fileName = "inception/test.sql";
+        CharStream source = CharStreams.fromFileName(fileName);
 
         MySqlLexer lexer = new MySqlLexer(source);
 
         MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
         parser.setBuildParseTree(true);
+        parser.removeErrorListeners();
+        parser.addErrorListener(new ThrowingErrorListener());
         ParseTree tree = parser.dmlStatement();
-        MySqlParserBaseVisitor visitor=new MySqlParserBaseVisitor();
+        MySqlParserVisitor visitor = new MySqlParserVisitor();
         visitor.visit(tree);
-
 //        //show AST in GUI
 //        JFrame frame = new JFrame("Antlr AST");
 //        JPanel panel = new JPanel();
