@@ -10,6 +10,7 @@
         <module name="inception" />
         <module name="start" />
         <module name="sat_daemon" />
+        <module name="target_mysql" />
       </profile>
     </annotationProcessing>
   </component>

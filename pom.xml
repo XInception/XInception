@@ -12,6 +12,7 @@
         <module>inception</module>
         <module>sat_daemon</module>
         <module>start</module>
+        <module>target_mysql</module>
     </modules>
 
     <dependencies>
