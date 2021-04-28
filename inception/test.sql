@@ -1,1 +1,4 @@
-SELECT * FROM USER
+DROP DATABASE database_name;
+
+
+SELECT  * FROM AAA;

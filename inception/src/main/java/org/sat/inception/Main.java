@@ -23,7 +23,7 @@ public class Main {
         parser.setBuildParseTree(true);
         parser.removeErrorListeners();
         parser.addErrorListener(new ThrowingErrorListener());
-        ParseTree tree = parser.dmlStatement();
+        ParseTree tree = parser.root();
         MySqlParserVisitor visitor = new MySqlParserVisitor();
         visitor.visit(tree);
 //        //show AST in GUI
