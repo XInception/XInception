@@ -7,8 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="sat_redis_daemon" />
         <module name="start" />
+        <module name="sat_redis_target" />
         <module name="sat_mysql_57_inception" />
+        <module name="sat_redis_inception" />
         <module name="sat_mysql_57_daemon" />
         <module name="sat_mysql_57_target" />
       </profile>
