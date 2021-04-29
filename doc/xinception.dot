@@ -1,0 +1,37 @@
+digraph G {
+
+  mysql_client_1->mysql_57_deamon
+
+  mysql_client_2->mysql_57_deamon
+
+  redis_client_1->redis_deamon
+
+  redis_client_2->redis_deamon
+
+
+   subgraph cluster_xinception {
+      label = "inception";
+      color= "green"
+
+        subgraph cluster_mysql_57_daemon {
+            color= "blue"
+            mysql_57_deamon->mysql_57_inception
+            label = "mysql_57_inception";
+        }
+
+        subgraph cluster_redis_daemon {
+            color= "red"
+            redis_deamon->redis_inception
+            label = "redis_inception";
+        }
+
+   }
+
+    subgraph cluster_backend {
+        label = "upstream";
+       mysql_57_inception->mysql_57_backend
+       redis_inception->redis_backend
+
+    }
+
+}
