@@ -77,7 +77,7 @@ public class Daemon {
             CapabilityFlags.setCapabilitiesAttr(ctx.channel(), capabilities);
             //TODO 使用远程服务器的 服务器版本
             ctx.writeAndFlush(Handshake.builder()
-                    .serverVersion("9.0.1")
+                    .serverVersion("0.0.1 XInception")
                     .connectionId(1)
                     .addAuthData(salt)
                     .characterSet(MysqlCharacterSet.UTF8_BIN)

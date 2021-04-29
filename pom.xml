@@ -12,7 +12,9 @@
         <module>start</module>
         <module>sat_mysql_57_daemon</module>
         <module>sat_mysql_57_inception</module>
+        <module>sat_mysql_57_codec</module>
         <module>sat_mysql_57_target</module>
+
         <module>sat_redis_daemon</module>
         <module>sat_redis_inception</module>
         <module>sat_redis_target</module>

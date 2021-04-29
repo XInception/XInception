@@ -12,6 +12,7 @@
         <module name="sat_redis_target" />
         <module name="sat_mysql_57_inception" />
         <module name="sat_redis_inception" />
+        <module name="sat_mysql_57_codec" />
         <module name="sat_mysql_57_daemon" />
         <module name="sat_mysql_57_target" />
       </profile>
