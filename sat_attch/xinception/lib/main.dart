@@ -30,12 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("XInception"),
+      ),
       body: Column(
-        children: [
-          Text("111"),
-          Text("222"),
-          TextField(),
-        ],
+        children: [Text("test0"), Text("test1"), TextField()],
       ),
     );
   }
