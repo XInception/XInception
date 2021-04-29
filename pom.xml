@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>inception</module>
-        <module>sat_daemon</module>
         <module>start</module>
-        <module>target_mysql</module>
+        <module>sat_mysql_57_daemon</module>
+        <module>sat_mysql_57_inception</module>
+        <module>sat_mysql_57_target</module>
     </modules>
 
     <dependencies>
