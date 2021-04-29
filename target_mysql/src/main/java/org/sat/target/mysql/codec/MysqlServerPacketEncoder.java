@@ -110,6 +110,7 @@ public class MysqlServerPacketEncoder extends AbstractPacketEncoder<MysqlServerP
 	}
 
 	protected void encodeOkResponse(EnumSet<CapabilityFlags> capabilities, Charset serverCharset, OkResponse response, ByteBuf buf) {
+		System.out.println("encodeOkResponse ->"+response.getSequenceId());
 		buf.writeByte(0);
 		CodecUtils.writeLengthEncodedInt(buf, response.getAffectedRows());
 		CodecUtils.writeLengthEncodedInt(buf, response.getLastInsertId());

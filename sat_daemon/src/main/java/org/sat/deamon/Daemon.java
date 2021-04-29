@@ -76,7 +76,7 @@ public class Daemon {
             CapabilityFlags.setCapabilitiesAttr(ctx.channel(), capabilities);
             //TODO 使用远程服务器的 服务器版本
             ctx.writeAndFlush(Handshake.builder()
-                    .serverVersion("8.0.17")
+                    .serverVersion("9.0.1")
                     .connectionId(1)
                     .addAuthData(salt)
                     .characterSet(MysqlCharacterSet.UTF8_BIN)
@@ -96,8 +96,10 @@ public class Daemon {
                 handleHandshakeResponse(ctx, (HandshakeResponse) msg);
             } else if (msg instanceof QueryCommand) {
                 handleQuery(ctx, (QueryCommand) msg);
+            } else if(msg instanceof CommandPacket){
+                System.out.println("收到消息" + ((CommandPacket) msg).getCommand().name());
             } else {
-                System.out.println("Received message: " + msg);
+                System.out.println("收到消息" + msg);
             }
         }
 
@@ -118,18 +120,12 @@ public class Daemon {
         log.info("发送确认包");
         ctx.writeAndFlush(OkResponse.builder()
                 .sequenceId(response.getSequenceId()+1)
-                .warnings(20)
-                .affectedRows(20)
-                .warnings(20)
                 .addStatusFlags(ServerStatusFlag.AUTO_COMMIT).build());
-
-
-
     }
 
     private void handleQuery(ChannelHandlerContext ctx, QueryCommand query) {
         final String queryString = query.getQuery();
-        log.info("收到请求: " + queryString);
+        log.info("收到请求: " + query.getCommand().name());
 
         if (isServerSettingsQuery(queryString)) {
             sendSettingsResponse(ctx, query);
@@ -151,7 +147,8 @@ public class Daemon {
                     .decimals(5)
                     .build());
             ctx.write(new EofResponse(++sequenceId, 0));
-            ctx.write(new ResultsetRow(++sequenceId, "1"));
+            ctx.write(new ResultsetRow(++sequenceId, "database01"));
+            ctx.write(new ResultsetRow(++sequenceId, "database02"));
             ctx.writeAndFlush(new EofResponse(++sequenceId, 0));
         }
     }
