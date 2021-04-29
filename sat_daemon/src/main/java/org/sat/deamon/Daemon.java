@@ -84,9 +84,10 @@ public class Daemon {
                     .build());
         }
 
+
         @Override
         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-            System.out.println("Server channel inactive");
+            System.out.println("客户端已经离线");
         }
 
         @Override
@@ -108,10 +109,22 @@ public class Daemon {
     }
 
     private void handleHandshakeResponse(ChannelHandlerContext ctx, HandshakeResponse response) {
-        log.info("处理握手请求 {} {}",response.getUsername(),response.getDatabase());
+        log.info("处理握手请求 {} ",response.getUsername());
+        log.info("处理握手attr {} ",response.getAttributes());
+        log.info("处理握手attr {} ",response.getAuthPluginData());
         //TODO 验证用户名密码是否 正确
+        //挑战随机数 界面对比
         ctx.pipeline().replace(MysqlClientPacketDecoder.class, "CommandPacketDecoder", new MysqlClientCommandPacketDecoder());
-        ctx.writeAndFlush(OkResponse.builder().build());
+        log.info("发送确认包");
+        ctx.writeAndFlush(OkResponse.builder()
+                .sequenceId(response.getSequenceId()+1)
+                .warnings(20)
+                .affectedRows(20)
+                .warnings(20)
+                .addStatusFlags(ServerStatusFlag.AUTO_COMMIT).build());
+
+
+
     }
 
     private void handleQuery(ChannelHandlerContext ctx, QueryCommand query) {

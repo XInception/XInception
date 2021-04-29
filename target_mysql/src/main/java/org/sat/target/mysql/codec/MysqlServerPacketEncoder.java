@@ -41,6 +41,7 @@ public class MysqlServerPacketEncoder extends AbstractPacketEncoder<MysqlServerP
 		} else if (packet instanceof Handshake) {
 			encodeHandshake((Handshake)packet, buf);
 		} else if (packet instanceof OkResponse) {
+			System.out.print("编码");
 			encodeOkResponse(capabilities, serverCharset, (OkResponse) packet, buf);
 		} else if (packet instanceof ResultsetRow) {
 			encodeResultsetRow(serverCharset, (ResultsetRow) packet, buf);
@@ -113,6 +114,7 @@ public class MysqlServerPacketEncoder extends AbstractPacketEncoder<MysqlServerP
 		CodecUtils.writeLengthEncodedInt(buf, response.getAffectedRows());
 		CodecUtils.writeLengthEncodedInt(buf, response.getLastInsertId());
 		if (capabilities.contains(CapabilityFlags.CLIENT_PROTOCOL_41)) {
+			System.out.println("41xxx");
 			buf.writeShortLE((int)CodecUtils.toLong(response.getStatusFlags()))
 			   .writeShortLE(response.getWarnings());
 
