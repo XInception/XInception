@@ -85,7 +85,6 @@ public class Daemon {
                     .build());
         }
 
-
         @Override
         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
             System.out.println("客户端已经离线");
@@ -131,8 +130,8 @@ public class Daemon {
 
     private void handleQuery(ChannelHandlerContext ctx, QueryCommand query) {
         final String queryString = query.getQuery();
-        log.info("收到请求: {} {}" , query.getCommand().name(),queryString);
-        XInception xInception=new XInception();
+        log.info("收到请求: {} {}", query.getCommand().name(), queryString);
+        XInception xInception = new XInception();
         xInception.checkSql(queryString);
         if (isServerSettingsQuery(queryString)) {
             sendSettingsResponse(ctx, query);
