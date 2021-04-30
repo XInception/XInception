@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sat_interface" />
         <module name="sat_redis_daemon" />
+        <module name="sat_api" />
         <module name="start" />
         <module name="sat_redis_target" />
         <module name="sat_mysql_57_inception" />
@@ -18,5 +19,10 @@
         <module name="sat_mysql_57_target" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sat_api" options="-parameters" />
+    </option>
   </component>
 </project>
