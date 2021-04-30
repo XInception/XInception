@@ -7,7 +7,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.sat.inception.XInception;
+import org.sat.inception.MysqlInception;
 import org.sat.target.mysql.codec.*;
 
 import java.io.IOException;
@@ -131,8 +131,8 @@ public class Daemon {
     private void handleQuery(ChannelHandlerContext ctx, QueryCommand query) {
         final String queryString = query.getQuery();
         log.info("收到请求: {} {}", query.getCommand().name(), queryString);
-        XInception xInception = new XInception();
-        xInception.checkSql(queryString);
+        MysqlInception mysqlInception = new MysqlInception();
+        mysqlInception.checkRule(queryString);
         if (isServerSettingsQuery(queryString)) {
             sendSettingsResponse(ctx, query);
         } else {

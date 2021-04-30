@@ -15,7 +15,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 @Slf4j
-public class TargetMysql {
+public class XIncMysqlClient {
 
     protected static final EnumSet<CapabilityFlags> CLIENT_CAPABILITIES = CapabilityFlags.getImplicitCapabilities();
     static {
@@ -27,7 +27,7 @@ public class TargetMysql {
 
 
     public static void main(String[] argv) throws ClassNotFoundException, SQLException {
-        var client=new TargetMysql();
+        var client=new XIncMysqlClient();
         client.start();
     }
 

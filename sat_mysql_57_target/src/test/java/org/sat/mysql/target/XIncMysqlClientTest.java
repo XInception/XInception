@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 @Slf4j
-class TargetMysqlTest {
+class XIncMysqlClientTest {
 
     static String serverHost;
     static int serverPort;

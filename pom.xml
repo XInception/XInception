@@ -18,6 +18,7 @@
         <module>sat_redis_daemon</module>
         <module>sat_redis_inception</module>
         <module>sat_redis_target</module>
+        <module>sat_interface</module>
     </modules>
 
     <dependencies>
