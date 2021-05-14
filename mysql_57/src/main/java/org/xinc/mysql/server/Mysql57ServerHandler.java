@@ -4,6 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
 import org.xinc.mysql.codec.*;
+import org.xinc.mysql.inception.MysqlInception;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -80,7 +81,7 @@ class Mysql57ServerHandler extends ChannelInboundHandlerAdapter {
     private void handleQuery(ChannelHandlerContext ctx, QueryCommand query) {
         final String queryString = query.getQuery();
         log.info("收到请求: {} {}", query.getCommand().name(), queryString);
-        org.xinc.inception.MysqlInception mysqlInception = new org.xinc.inception.MysqlInception();
+        MysqlInception mysqlInception = new MysqlInception();
         mysqlInception.checkRule(queryString);
         if (isServerSettingsQuery(queryString)) {
             sendSettingsResponse(ctx, query);
