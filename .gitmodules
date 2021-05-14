@@ -1,0 +1,6 @@
+[submodule "redis"]
+	path = redis
+	url = git@github.com:XInception/Redis.git
+[submodule "mysql_57"]
+	path = mysql_57
+	url = git@github.com:XInception/Mysql.git
