@@ -7,22 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sat_interface" />
-        <module name="sat_redis_daemon" />
-        <module name="sat_api" />
-        <module name="start" />
-        <module name="sat_redis_target" />
-        <module name="sat_mysql_57_inception" />
-        <module name="sat_redis_inception" />
-        <module name="sat_mysql_57_codec" />
-        <module name="sat_mysql_57_daemon" />
-        <module name="sat_mysql_57_target" />
+        <module name="mysql_57" />
+        <module name="redis" />
+        <module name="function" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="sat_api" options="-parameters" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="function" target="11" />
+      <module name="mysql_57" target="11" />
+      <module name="parent" target="11" />
+      <module name="redis" target="11" />
+      <module name="xinc_interface" target="11" />
+      <module name="xinc_mysql_57_inception" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
