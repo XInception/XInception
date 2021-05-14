@@ -4,3 +4,12 @@
 [submodule "mysql_57"]
 	path = mysql_57
 	url = git@github.com:XInception/Mysql.git
+[submodule "web_api"]
+	path = web_api
+	url = git@github.com:XInception/Api.git
+[submodule "Xincm"]
+	path = Xincm
+	url = git@github.com:XInception/Xincm.git
+[submodule "Xincw"]
+	path = Xincw
+	url = git@github.com:XInception/Xincw.git
