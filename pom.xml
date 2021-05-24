@@ -12,6 +12,10 @@
         <module>function</module>
         <module>mysql_57</module>
         <module>redis</module>
+        <module>http</module>
+        <module>mqtt</module>
+        <module>postgre</module>
+        <module>mongodb</module>
     </modules>
 
     <dependencies>
@@ -67,6 +71,15 @@
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.8</version>
+            <type>pom</type>
+        </dependency>
+
 
     </dependencies>
 

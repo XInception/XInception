@@ -1,11 +1,18 @@
 # XInception
 
+- 路线图
+
+  - redis 审核实现
+  - mysql 审核实现
+  - http  审核实现
+  - mqtt  审核实现
+  - postgre  审核实现
+  - mongodb  审核实现
+  
 结构 大概就这样了
 ![结构](./doc/img.svg)
 
-- 正在做的事情
-    - mysql 审核实现
-    - redis 审核实现
+
 
 ### 我怎么增加自己的实现
 
