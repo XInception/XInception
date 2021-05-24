@@ -80,6 +80,13 @@
             <type>pom</type>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.kaitai/kaitai-struct-runtime -->
+        <dependency>
+            <groupId>io.kaitai</groupId>
+            <artifactId>kaitai-struct-runtime</artifactId>
+            <version>0.9</version>
+        </dependency>
+
 
     </dependencies>
 
