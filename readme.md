@@ -12,8 +12,6 @@
 结构 大概就这样了
 ![结构](./doc/img.svg)
 
-
-
 ### 我怎么增加自己的实现
 
 ### 需要什么技术栈?
@@ -29,3 +27,14 @@
 - 实现 interface下面的接口就可以
 
 ### 授权协议 Apache
+
+
+### 打包 
+
+```
+mvn install  -Dmaven.test.skip=true
+```
+
+```
+mvn package
+```
