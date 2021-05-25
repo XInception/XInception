@@ -13,3 +13,6 @@
 [submodule "Xincw"]
 	path = Xincw
 	url = git@github.com:XInception/Xincw.git
+[submodule "JamSpell"]
+	path = JamSpell
+	url = git@github.com:bakwc/JamSpell.git
