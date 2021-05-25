@@ -19,3 +19,6 @@
 [submodule "moquette"]
 	path = moquette
 	url = git@github.com:Crtrpt/moquette.git
+[submodule "postgre"]
+	path = postgre
+	url = git@github.com:XInception/PostgreSQL.git
