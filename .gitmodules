@@ -25,3 +25,6 @@
 [submodule "mqtt"]
 	path = mqtt
 	url = git@github.com:XInception/mqtt.git
+[submodule "http"]
+	path = http
+	url = git@github.com:XInception/http.git
