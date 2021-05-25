@@ -22,3 +22,6 @@
 [submodule "postgre"]
 	path = postgre
 	url = git@github.com:XInception/PostgreSQL.git
+[submodule "mqtt"]
+	path = mqtt
+	url = git@github.com:XInception/mqtt.git
