@@ -23,5 +23,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
+    - name: 构建本地mqtt服务器
+      run: cd moquette &&  mvn install  -Dmaven.test.skip=true
+    - name: 构建
       run: mvn -B package --file pom.xml
