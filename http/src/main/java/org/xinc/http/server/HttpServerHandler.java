@@ -47,8 +47,17 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<Object> {
         ctx.flush();
     }
 
+
+
     @Override
-    protected void messageReceived(ChannelHandlerContext ctx, Object msg) {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        System.out.println("异常断开连接");
+        cause.printStackTrace();
+        ctx.close();
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         HttpClient upstreamClient = (HttpClient) ctx.channel().attr(AttributeKey.valueOf("http_connect")).get();
         try {
             httpInception.checkRule(msg);
@@ -62,12 +71,5 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<Object> {
         if (msg instanceof LastHttpContent) {
             upstreamClient.flush();
         }
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        System.out.println("异常断开连接");
-        cause.printStackTrace();
-        ctx.close();
     }
 }

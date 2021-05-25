@@ -26,21 +26,20 @@ public class HttpClientHandler extends SimpleChannelInboundHandler<HttpObject> {
         this.property = property;
     }
 
-
-    @Override
-    protected void messageReceived(ChannelHandlerContext ctx, HttpObject httpObject) throws Exception {
-            if(downStreamChanel!=null ){
-                System.out.println(httpObject);
-                downStreamChanel.write(httpObject);
-                if(httpObject instanceof LastHttpContent){
-                    downStreamChanel.flush().closeFuture().sync();
-                }
-            }
-    }
-
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, HttpObject httpObject) throws Exception {
+        if(downStreamChanel!=null ){
+            System.out.println(httpObject);
+            downStreamChanel.write(httpObject);
+            if(httpObject instanceof LastHttpContent){
+                downStreamChanel.flush().closeFuture().sync();
+            }
+        }
     }
 }
