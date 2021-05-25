@@ -9,8 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MqttClientHandler extends ChannelInboundHandlerAdapter {
 
-
     Channel downStreamChanel = null;
+
     MqttClientProperty property = null;
 
     public MqttClientHandler(Channel downStreamChanel, MqttClientProperty property) {
@@ -18,11 +18,11 @@ public class MqttClientHandler extends ChannelInboundHandlerAdapter {
         this.property = property;
     }
 
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws InterruptedException {
-
-
+        System.out.println("转发数据给前端");
+        System.out.println(msg);
+        downStreamChanel.writeAndFlush(msg);
     }
 
     @Override

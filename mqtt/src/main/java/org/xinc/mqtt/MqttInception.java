@@ -10,6 +10,6 @@ import org.xinc.function.InceptionException;
 public class MqttInception implements Inception {
     @Override
     public void checkRule(Object source) throws InceptionException {
-        System.out.println("http 请求审核 Inception");
+        System.out.println("mqtt 请求审核 Inception");
     }
 }
