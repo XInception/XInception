@@ -28,3 +28,6 @@
 [submodule "http"]
 	path = http
 	url = git@github.com:XInception/http.git
+[submodule "mongodb"]
+	path = mongodb
+	url = git@github.com:XInception/mongodb.git
