@@ -53,7 +53,7 @@ public class MqttBroker {
                         }
                     });
             f = b.bind(property.server, property.port);
-            log.info("http proxy 启动完成 {} {} ", property.server, property.port);
+            log.info("mqtt proxy 启动完成 {} {} ", property.server, property.port);
             f.channel().closeFuture().sync();
             f.addListener(f->{
                 log.info("启动完成消息");
