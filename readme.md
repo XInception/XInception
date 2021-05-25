@@ -1,5 +1,6 @@
 # XInception
 
+[![打包测试](https://github.com/XInception/XInception/actions/workflows/maven.yml/badge.svg)](https://github.com/XInception/XInception/actions/workflows/maven.yml)
 - 路线图
   - 增加线上体验地址
   - redis 审核实现
