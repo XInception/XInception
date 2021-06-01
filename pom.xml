@@ -16,6 +16,7 @@
         <module>mqtt</module>
         <module>postgre</module>
         <module>mongodb</module>
+        <module>code</module>
     </modules>
 
     <dependencies>
